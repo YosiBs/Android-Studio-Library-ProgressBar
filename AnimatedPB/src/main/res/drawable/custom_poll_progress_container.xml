@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Background layer -->
+    <item android:id="@+id/progressContainer">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/containerDefaultColor"/> <!-- Light gray background -->
+            <corners android:radius="@dimen/radius_container" /> <!-- Rounded corners -->
+        </shape>
+    </item>
+</layer-list>

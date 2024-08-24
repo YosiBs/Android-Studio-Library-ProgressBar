@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="AnimatedPB">
+
+        <!--Progress Styling        -->
+        <attr name="progressColor" format="color" />
+        <attr name="progressHeight" format="integer" />
+        <attr name="progressWidth" format="integer" />
+        <attr name="progressCornerRadius" format="integer" />
+
+
+        <!--Progress Attributes        -->
+        <attr name="barLabel" format="string" />
+        <attr name="progress" format="float" />
+        <attr name="minValue" format="float" />
+        <attr name="maxValue" format="float" />
+        <attr name="animDurationMillis" format="integer" />
+
+        <!--Container Styling        -->
+        <attr name="containerColor" format="color" />
+        <attr name="containerHeight" format="integer" />
+        <attr name="containerWidth" format="integer" />
+        <attr name="containerCornerRadius" format="integer" />
+
+
+        <!-- animation type Option       -->
+        <attr name="animationType" format="enum">
+            <enum name="linear" value="0" />
+            <enum name="ease_out" value="1" />
+            <enum name="ease_in" value="2" />
+        </attr>
+
+        <!-- Shape Option       -->
+        <attr name="barShape" format="enum">
+            <enum name="circle" value="0" />
+            <enum name="poll" value="1" />
+        </attr>
+
+
+
+    </declare-styleable>
+</resources>
