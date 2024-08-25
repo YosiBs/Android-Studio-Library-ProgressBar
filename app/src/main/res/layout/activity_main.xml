@@ -12,12 +12,11 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!" />
-
+        android:text="linear" />
     <com.example.animatedpb.Models.AnimatedPB
-        android:id="@+id/animatedPB_text"
+        android:id="@+id/animatedPB_2"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="wrap_content"
         app:progressColor="#E040fB"
         app:containerColor="#E5d373"
         app:barLabel="Download"
@@ -26,9 +25,50 @@
         app:maxValue="100"
         app:progress="10"
         app:animationType="linear"
-
-
+        app:containerCornerRadius="0"
+        app:progressCornerRadius="0"
         />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ease-in" />
+
+    <com.example.animatedpb.Models.AnimatedPB
+        android:id="@+id/animatedPB_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:progressColor="#E0e0fB"
+        app:containerColor="#E5d373"
+        app:barLabel="Download"
+        app:barShape="poll"
+        app:minValue="0"
+        app:maxValue="100"
+        app:progress="10"
+        app:animationType="ease_in"
+        app:containerCornerRadius="20"
+        app:progressCornerRadius="60"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ease-out" />
+    <com.example.animatedpb.Models.AnimatedPB
+        android:id="@+id/animatedPB_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:progressColor="#E040fB"
+        app:containerColor="#5ed3ee"
+        app:barLabel="Download"
+        app:barShape="poll"
+        app:minValue="0"
+        app:maxValue="100"
+        app:progress="10"
+        app:animationType="ease_out"
+        app:containerCornerRadius="60"
+        app:progressCornerRadius="30"
+        />
+
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/text_BTN"

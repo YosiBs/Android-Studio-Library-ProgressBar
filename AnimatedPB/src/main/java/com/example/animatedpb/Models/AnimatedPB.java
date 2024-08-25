@@ -6,6 +6,11 @@ import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.PorterDuff;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.GradientDrawable;
+import android.graphics.drawable.LayerDrawable;
+import android.graphics.drawable.ShapeDrawable;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -28,6 +33,7 @@ public class AnimatedPB extends ConstraintLayout {
     private float minValue;
     private float maxValue;
     private float progress;
+    private float progressContainer;
     private String barLabel;
 
     private int animationType;
@@ -64,11 +70,13 @@ public class AnimatedPB extends ConstraintLayout {
             containerColor = a.getColor(R.styleable.AnimatedPB_containerColor, DEFAULT_CONTAINER_COLOR);
             barShape = a.getInt(R.styleable.AnimatedPB_barShape, DEFAULT_BAR_SHAPE);
             progress = a.getFloat(R.styleable.AnimatedPB_progress, DEFAULT_PROGRESS);
+            progressContainer = a.getFloat(R.styleable.AnimatedPB_progressContainer, DEFAULT_PROGRESS);
+
             minValue = a.getFloat(R.styleable.AnimatedPB_minValue, DEFAULT_MIN_VALUE);
             maxValue = a.getFloat(R.styleable.AnimatedPB_maxValue, DEFAULT_MAX_VALUE);
             logic = new Logic(minValue, maxValue);
-            progressCornerRadius = a.getDimensionPixelSize(R.styleable.AnimatedPB_progressCornerRadius, DEFAULT_PROGRESS_RADIUS);
-            containerCornerRadius = a.getDimensionPixelSize(R.styleable.AnimatedPB_containerCornerRadius, DEFAULT_CONTAINER_RADIUS);
+            progressCornerRadius = a.getInt(R.styleable.AnimatedPB_progressCornerRadius, DEFAULT_PROGRESS_RADIUS);
+            containerCornerRadius = a.getInt(R.styleable.AnimatedPB_containerCornerRadius, DEFAULT_CONTAINER_RADIUS);
             animationType = a.getInt(R.styleable.AnimatedPB_animationType, DEFAULT_ANIM_TYPE);
             animDurationMillis = a.getInt(R.styleable.AnimatedPB_animDurationMillis, DEFAULT_ANIM_DURATION_MILLIS);
             barLabel = a.getString(R.styleable.AnimatedPB_barLabel);
@@ -84,10 +92,14 @@ public class AnimatedPB extends ConstraintLayout {
                     "\nanimDurationMillis: " + animDurationMillis +
                     "\nbarLabel: " + barLabel +
                     "\n~~~~~~~~~~~~~~~~~~~~~~~\n");
-
+            // Set progress and container colors programmatically
+            setContainerCornerRadius(containerCornerRadius);
+            setProgressCornerRadius(progressCornerRadius);
+            setProgressColor();
+            setContainerColor();
 
         } finally {
-            //setProgress(progress);
+
             animateProgress(progress,1000);
             setBarLabel(barLabel);
             a.recycle();
@@ -95,34 +107,33 @@ public class AnimatedPB extends ConstraintLayout {
     }
 
 
-    public void startAnimation() {
-        // This is where you apply animations
-        invalidate(); // Redraw the view whenever necessary
-    }
+
 
     public void animateProgress(float newProgress, int animDurationMillis) {
-        ObjectAnimator animator = ObjectAnimator.ofFloat(this, "progress", progress, newProgress);
+        ObjectAnimator animator = ObjectAnimator.ofInt(this, "progress", (int)progress, (int)newProgress);
         animator.setDuration(animDurationMillis);  // Set your animation duration
 
         // Choose the interpolator based on animationType
         switch (animationType) {
             case 0: // Linear
-                animator.setInterpolator(new AccelerateInterpolator());
+                Log.d("ddd","~~linear");
+                animator.setInterpolator(new LinearInterpolator());
                 break;
             case 1: // Ease-out
-                animator.setInterpolator(new DecelerateInterpolator());
+                Log.d("ddd","~~Ease-out");
+                animator.setInterpolator(new DecelerateInterpolator(3.0f));
                 break;
             case 2: // Ease-In
-                animator.setInterpolator(new LinearInterpolator());
+                Log.d("ddd","~~Ease-In");
+
+                animator.setInterpolator(new AccelerateInterpolator(2.0f));
                 break;
         }
 
         animator.start();
     }
-    public void setProgress(float value) {
+    public void setProgress(int value) {
         this.progress = logic.calculateProgress(value);
-
-
 
         // Update UI component based on progress
         RelativeLayout progressBar = findViewById(R.id.PB_progress);
@@ -136,9 +147,11 @@ public class AnimatedPB extends ConstraintLayout {
             params.width = newWidth;
             progressBar.setLayoutParams(params);
         });
+        // Check if the barLabel can fit within the progress bar
+        setBarLabel(barLabel);
 
         MaterialTextView percentageMTV = findViewById(R.id.Percentage_MTV);
-        percentageMTV.setText(progress + "%");
+        percentageMTV.setText((int)progress + "%");
 
         invalidate();  // Trigger redraw
     }
@@ -151,19 +164,36 @@ public class AnimatedPB extends ConstraintLayout {
         return progressColor;
     }
 
-    public AnimatedPB setProgressColor(int progressColor) {
-        this.progressColor = progressColor;
-        return this;
-    }
-
     public int getContainerColor() {
         return containerColor;
     }
+    private void setProgressColor() {
+        RelativeLayout progressBar = findViewById(R.id.PB_progress);
+        Drawable progressDrawable = progressBar.getBackground();  // Assuming background is the progress drawable
 
-    public AnimatedPB setContainerColor(int containerColor) {
-        this.containerColor = containerColor;
-        return this;
+        if (progressDrawable instanceof LayerDrawable) {
+            LayerDrawable layerDrawable = (LayerDrawable) progressDrawable;
+            Drawable progressLayer = layerDrawable.findDrawableByLayerId(android.R.id.progress);  // Find the progress layer
+            if (progressLayer != null) {
+                progressLayer.setColorFilter(progressColor, PorterDuff.Mode.SRC_IN);  // Apply color
+            }
+        }
     }
+
+    private void setContainerColor() {
+        RelativeLayout progressContainer = findViewById(R.id.PB_shell);
+        Drawable containerDrawable = progressContainer.getBackground();  // Assuming background is the progress drawable
+
+        if (containerDrawable instanceof LayerDrawable) {
+            LayerDrawable layerDrawable = (LayerDrawable) containerDrawable;
+            Drawable ContainerLayer = layerDrawable.findDrawableByLayerId(R.id.progressContainer);  // Find the progress layer
+            if (ContainerLayer != null) {
+                Log.d("ddd", "Not null");
+                ContainerLayer.setColorFilter(containerColor, PorterDuff.Mode.SRC_IN);  // Apply color
+            }
+        }
+    }
+
 
     public int getBarShape() {
         return barShape;
@@ -208,27 +238,80 @@ public class AnimatedPB extends ConstraintLayout {
     public AnimatedPB setBarLabel(String barLabel) {
         this.barLabel = barLabel;
         MaterialTextView labelMTV = findViewById(R.id.label_MTV);
-        if (barLabel != null){
-            labelMTV.setText(barLabel);
+
+        // Measure the width of the barLabel text
+        if (barLabel != null) {
+            Paint paint = new Paint();
+            paint.setTextSize(labelMTV.getTextSize());
+            float textWidth = paint.measureText(barLabel);
+
+            // Get the width of the progress bar
+            RelativeLayout progressBar = findViewById(R.id.PB_progress);
+
+            progressBar.post(() -> {
+                int progressBarWidth = progressBar.getWidth();
+
+                // Compare the text width with the progress bar width
+                if (progressBarWidth > textWidth) {
+                    // If the label is not visible yet, start the fade-in animation
+                    if (labelMTV.getVisibility() != View.VISIBLE) {
+                        labelMTV.setText(barLabel);
+                        labelMTV.setVisibility(View.VISIBLE);
+                        labelMTV.setAlpha(0f);  // Start with invisible
+
+                        // Animate the alpha property to fade in
+                        labelMTV.animate()
+                                .alpha(1f)  // Fade to fully visible
+                                .setDuration(500)  // 500 milliseconds duration
+                                .setListener(null);  // No additional listener
+                    }
+                } else {
+                    // Hide the label if the progress bar is not wide enough
+                    labelMTV.setVisibility(View.GONE);
+                }
+            });
         }
+
         return this;
     }
-
     public int getProgressCornerRadius() {
         return progressCornerRadius;
     }
 
-    public AnimatedPB setProgressCornerRadius(int progressCornerRadius) {
-        this.progressCornerRadius = progressCornerRadius;
-        return this;
+    public void setProgressCornerRadius(int progressCornerRadius) {
+
+        RelativeLayout progressBar = findViewById(R.id.PB_progress);
+        Drawable progressDrawable = progressBar.getBackground();  // Assuming background is the progress drawable
+
+        if (progressDrawable instanceof LayerDrawable) {
+            LayerDrawable layerDrawable = (LayerDrawable) progressDrawable;
+            Drawable progressLayer = layerDrawable.findDrawableByLayerId(android.R.id.progress);  // Find the progress layer
+            if (progressLayer instanceof GradientDrawable) {
+                GradientDrawable gradientDrawable = (GradientDrawable) progressLayer;
+                gradientDrawable.setCornerRadius(progressCornerRadius);  // Apply the progress corner radius
+            }
+        }
+
     }
 
     public int getContainerCornerRadius() {
         return containerCornerRadius;
     }
 
-    public AnimatedPB setContainerCornerRadius(int containerCornerRadius) {
-        this.containerCornerRadius = containerCornerRadius;
-        return this;
+
+    public void setContainerCornerRadius(int containerCornerRadius) {
+
+        RelativeLayout progressContainer = findViewById(R.id.PB_shell);
+        Drawable containerDrawable = progressContainer.getBackground();  // Assuming background is the progress drawable
+
+        if (containerDrawable instanceof LayerDrawable) {
+            LayerDrawable layerDrawable = (LayerDrawable) containerDrawable;
+            Drawable progressContainerLayer = layerDrawable.findDrawableByLayerId(R.id.progressContainer);  // Find the progress layer
+            if (progressContainerLayer instanceof GradientDrawable) {
+                GradientDrawable gradientDrawable = (GradientDrawable) progressContainerLayer;
+                gradientDrawable.setCornerRadius(containerCornerRadius);  // Apply the progress corner radius
+            }
+        }
+
     }
 }

@@ -15,6 +15,9 @@ import com.google.android.material.button.MaterialButton;
 
 public class MainActivity extends AppCompatActivity {
     private AnimatedPB animatedPB;
+    private AnimatedPB animatedPB_1;
+    private AnimatedPB animatedPB_2;
+
     private MaterialButton text_BTN;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +33,8 @@ public class MainActivity extends AppCompatActivity {
 
     private void initViews() {
         animatedPB = findViewById(R.id.animatedPB_text);
+        animatedPB_1 = findViewById(R.id.animatedPB_1);
+        animatedPB_2 = findViewById(R.id.animatedPB_2);
 
         Log.d("ddd", "\n~~~~~~~~~~~~~~\n" +
                 "@ ~ MainActivityy Attributes:" +
@@ -46,9 +51,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 float progress = animatedPB.getProgress();
+                float progress1 = animatedPB_1.getProgress();
+
                 Log.d("ddd", "current Progress: " + progress);
                 //animatedPB.setProgress(progress + 10);
-                animatedPB.animateProgress(progress+10,1000);
+                animatedPB.animateProgress(progress+30,1000);
+                animatedPB_1.animateProgress(progress1+30,1000);
+                animatedPB_2.animateProgress(progress+30,1000);
 
 
             }

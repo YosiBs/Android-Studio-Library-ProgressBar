@@ -20,6 +20,8 @@
         <attr name="containerColor" format="color" />
         <attr name="containerHeight" format="integer" />
         <attr name="containerWidth" format="integer" />
+        <attr name="progressContainer" format="float" />
+
         <attr name="containerCornerRadius" format="integer" />
 
 
