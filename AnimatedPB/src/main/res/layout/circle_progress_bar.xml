@@ -1,56 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    >
+    xmlns:tools="http://schemas.android.com/tools"
+    android:padding="5dp"
+    android:background="#CFD8DC">
 
-    <!-- Poll Container -->
+    <!-- Circular Container -->
     <RelativeLayout
         android:id="@+id/PB_shell"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:background="@drawable/custom_poll_progress_container"
-        />
-    <!-- Poll Progress -->
-    <RelativeLayout
-        android:id="@+id/PB_progress"
-        android:layout_width="30dp"
-        android:layout_height="match_parent"
-        android:layout_marginVertical="5dp"
-        android:background="@drawable/custom_poll_progress"
-        app:layout_constraintStart_toStartOf="@+id/PB_shell"
-        app:layout_constraintBottom_toBottomOf="@+id/PB_shell"
-        app:layout_constraintTop_toTopOf="@+id/PB_shell"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:background="@drawable/custom_circle_container"
+
         />
 
-    <!-- Progress Label -->
+    <!-- Circular Progress -->
+    <RelativeLayout
+        android:id="@+id/PB_progress"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="10dp"
+        app:layout_constraintStart_toStartOf="@+id/PB_shell"
+        app:layout_constraintEnd_toEndOf="@+id/PB_shell"
+        app:layout_constraintBottom_toBottomOf="@+id/PB_shell"
+        app:layout_constraintTop_toTopOf="@+id/PB_shell"
+        android:background="@drawable/custom_circle_progress"
+        />
+
+    <!-- Label Text in the center -->
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/label_MTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="5dp"
+        android:textSize="16sp"
         android:textColor="@android:color/black"
-        app:layout_constraintBottom_toBottomOf="@+id/PB_progress"
-        app:layout_constraintStart_toStartOf="@+id/PB_progress"
-        app:layout_constraintTop_toTopOf="@+id/PB_progress"
+        app:layout_constraintTop_toTopOf="@id/PB_shell"
+        app:layout_constraintBottom_toBottomOf="@id/PB_shell"
+        app:layout_constraintStart_toStartOf="@id/PB_shell"
+        app:layout_constraintEnd_toEndOf="@id/PB_shell"
         />
 
-    <!-- Progress Percentage -->
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/value_MTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginRight="5dp"
         tools:text="0"
+        android:textSize="16sp"
         android:textColor="@android:color/black"
-        app:layout_constraintBottom_toBottomOf="@+id/PB_progress"
-        app:layout_constraintEnd_toEndOf="@+id/PB_progress"
-        app:layout_constraintTop_toTopOf="@+id/PB_progress"
+        app:layout_constraintTop_toBottomOf="@id/label_MTV"
+        app:layout_constraintStart_toStartOf="@id/label_MTV"
+        app:layout_constraintEnd_toEndOf="@id/label_MTV"
         />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

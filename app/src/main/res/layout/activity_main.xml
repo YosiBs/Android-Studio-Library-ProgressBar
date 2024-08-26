@@ -5,75 +5,157 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    android:gravity="center_horizontal"
+    tools:context=".MainActivity"
+    android:padding="5dp"
+    >
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="linear" />
     <com.example.animatedpb.Models.AnimatedPB
         android:id="@+id/animatedPB_2"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:progressColor="#E040fB"
-        app:containerColor="#E5d373"
-        app:barLabel="Download"
+        android:layout_height="40dp"
+        app:progressColor="#4CAF50"
+        app:containerColor="#F5F5F5"
+        app:barLabel="Linear"
         app:barShape="poll"
         app:minValue="0"
         app:maxValue="100"
-        app:progress="10"
+        app:progress="0"
         app:animationType="linear"
+        app:valueToDisplay="number"
         app:containerCornerRadius="0"
         app:progressCornerRadius="0"
+        app:labelColor="#212121"
+        app:valueColor="#212121"
         />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Ease-in" />
-
     <com.example.animatedpb.Models.AnimatedPB
-        android:id="@+id/animatedPB_text"
+        android:id="@+id/animatedPB_4"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:progressColor="#E0e0fB"
-        app:containerColor="#E5d373"
-        app:barLabel="Download"
+        android:layout_height="40dp"
+        app:progressColor="#FBC02D"
+        app:containerColor="#FFF9C4"
+        app:barLabel="Bounce"
         app:barShape="poll"
         app:minValue="0"
         app:maxValue="100"
-        app:progress="10"
-        app:animationType="ease_in"
-        app:containerCornerRadius="20"
-        app:progressCornerRadius="60"
+        app:progress="0"
+        app:animationType="bounce"
+        app:valueToDisplay="number"
+        app:containerCornerRadius="100"
+        app:progressCornerRadius="50"
+        app:labelColor="#212121"
+        app:valueColor="#212121"
         />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Ease-out" />
+    <com.example.animatedpb.Models.AnimatedPB
+        android:id="@+id/animatedPB_3"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        app:progressColor="#E91E63"
+        app:containerColor="#FFEBEE"
+        app:barLabel="Ease-In"
+        app:barShape="poll"
+        app:minValue="0"
+        app:maxValue="100"
+        app:progress="0"
+        app:animationType="ease_in"
+        app:valueToDisplay="percentage"
+        app:containerCornerRadius="20"
+        app:progressCornerRadius="10"
+        app:labelColor="#FFFFFF"
+        app:valueColor="#FFFFFF"
+        />
     <com.example.animatedpb.Models.AnimatedPB
         android:id="@+id/animatedPB_1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:progressColor="#E040fB"
-        app:containerColor="#5ed3ee"
-        app:barLabel="Download"
+        android:layout_height="40dp"
+        app:progressColor="#FF9800"
+        app:containerColor="#FFF3E0"
+        app:barLabel="Ease-Out"
         app:barShape="poll"
         app:minValue="0"
         app:maxValue="100"
-        app:progress="10"
+        app:progress="0"
         app:animationType="ease_out"
+        app:valueToDisplay="none"
         app:containerCornerRadius="60"
         app:progressCornerRadius="30"
+        app:labelColor="#212121"
+        app:valueColor="#212121"
         />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="126dp"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal"
+
+        >
 
 
+        <com.example.animatedpb.Models.AnimatedPB
+            android:id="@+id/animatedPB_5"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            app:progressColor="#03A9F4"
+            app:containerColor="#E1F5FE"
+            app:barLabel="Bounce"
+            app:barShape="circle"
+            app:minValue="0"
+            app:maxValue="100"
+            app:progress="0"
+            app:animationType="bounce"
+            app:valueToDisplay="percentage"
+            app:labelColor="#FFFFFF"
+            app:valueColor="#FFFFFF"
+            />
+
+        <com.example.animatedpb.Models.AnimatedPB
+            android:id="@+id/animatedPB_6"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            app:progressColor="#607D8B"
+            app:containerColor="#ECEFF1"
+            app:barLabel="Ease-In"
+            app:barShape="circle"
+            app:minValue="0"
+            app:maxValue="100"
+            app:progress="0"
+            app:animationType="ease_in"
+            app:valueToDisplay="number"
+            app:labelColor="#FFFFFF"
+            app:valueColor="#FFFFFF"
+
+            />
+        <com.example.animatedpb.Models.AnimatedPB
+            android:id="@+id/animatedPB_7"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            app:progressColor="#673AB7"
+            app:containerColor="#EDE7F6"
+            app:barLabel="Linear"
+            app:barShape="circle"
+            app:minValue="0"
+            app:maxValue="100"
+            app:progress="0"
+            app:animationType="linear"
+            app:valueToDisplay="number"
+            app:labelColor="@color/black"
+            app:valueColor="@color/black"
+            />
+    </LinearLayout>
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/text_BTN"
+        android:id="@+id/test_BTN"
         android:layout_width="150dp"
         android:layout_height="50dp"
-        android:text="Start" />
+        android:text="Test" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/reset_BTN"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:text="Reset" />
 
 </LinearLayout>

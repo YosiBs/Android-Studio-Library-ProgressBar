@@ -2,4 +2,5 @@
 <resources>
     <dimen name="radius_container">50dp</dimen>
     <dimen name="radius_progress">50dp</dimen>
+    <dimen name="padding_progress_default">0dp</dimen>
 </resources>

@@ -7,10 +7,18 @@
         <attr name="progressHeight" format="integer" />
         <attr name="progressWidth" format="integer" />
         <attr name="progressCornerRadius" format="integer" />
+        <attr name="progressMarginTop" format="integer" />
+        <attr name="progressMarginLeft" format="integer" />
+        <attr name="progressMarginBottom" format="integer" />
+        <attr name="progressMarginRight" format="integer" />
 
 
         <!--Progress Attributes        -->
         <attr name="barLabel" format="string" />
+        <attr name="labelColor" format="color" />
+        <attr name="labelTextSize" format="integer" />
+        <attr name="valueColor" format="color" />
+
         <attr name="progress" format="float" />
         <attr name="minValue" format="float" />
         <attr name="maxValue" format="float" />
@@ -21,7 +29,6 @@
         <attr name="containerHeight" format="integer" />
         <attr name="containerWidth" format="integer" />
         <attr name="progressContainer" format="float" />
-
         <attr name="containerCornerRadius" format="integer" />
 
 
@@ -30,12 +37,21 @@
             <enum name="linear" value="0" />
             <enum name="ease_out" value="1" />
             <enum name="ease_in" value="2" />
+            <enum name="bounce" value="3" />
+
         </attr>
 
         <!-- Shape Option       -->
         <attr name="barShape" format="enum">
-            <enum name="circle" value="0" />
-            <enum name="poll" value="1" />
+            <enum name="poll" value="0" />
+            <enum name="circle" value="1" />
+        </attr>
+
+        <!-- Value Desplay Option       -->
+        <attr name="valueToDisplay" format="enum">
+            <enum name="number" value="0" />
+            <enum name="percentage" value="1" />
+            <enum name="none" value="2" />
         </attr>
 
 
