@@ -1,11 +1,11 @@
-<h1>AnimatedPB</h1>
+<h1>AnimatedPB [Android Studio Library]</h1>
 
   <h2>Description</h2>
   <p>
     AnimatedPB is an Android library for creating customizable and animated progress bars. It supports various shapes like polls and circles, allows for animation customization (linear, ease-in, ease-out, bounce), and offers extensive styling options for progress bars and containers. With easy-to-use attributes, you can set colors, labels, and more to create engaging UI elements.
   </p>
 <h2>Demo</h2>
-<img src="https://github.com/user-attachments/assets/c96a645b-507b-449b-9546-9533edf01c67" width="260" height="430" alt="finalgif">
+<img src="https://github.com/user-attachments/assets/c96a645b-507b-449b-9546-9533edf01c67" width="260" alt="gif">
 
   <h2><img src="https://github.com/YosiBs/Pokemon-Escape-Mobile-Game/assets/105666011/008a508e-5484-46ba-be36-ac359d603f01" alt=pic5 width="40" height="40"> Features</h2>
   <ul>
@@ -17,7 +17,9 @@
   </ul>
 
   <h2><img src="https://github.com/user-attachments/assets/4980fb42-e8b7-447c-86e9-007d8fb72644" alt=pic5 width="40" height="40"> Installation</h2>
-  <p>To use AnimatedPB in your project, follow these steps:</p>
+  <a href="https://jitpack.io/#YosiBs/SpannableTag-Android-Library"><img src="https://jitpack.io/v/YosiBs/SpannableTag-Android-Library.svg" alt=pic5 width="100"></a>
+
+<p>Add the following dependency to your <code>build.gradle</code> file:</p>
   <pre>
     <!-- In your project-level build.gradle -->
     repositories {
@@ -54,6 +56,19 @@
         app:valueColor="#212121"
         />
 ```
+<hr/>
+
+<p> You can add an OnClick Listener to the ProgressBar and implement your own Functionality</p>
+
+```java
+my_animatedPB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this, "Progressbar clicked", Toast.LENGTH_SHORT).show();
+            }
+        });
+```
+
 
   <h2><img src="https://github.com/user-attachments/assets/7908e7a2-ff92-4cb0-9101-96fc8a4efd30" alt=pic5 width="40" height="40"> Attributes</h2>
   <p>Here’s a table of all customizable attributes for AnimatedPB:</p>
