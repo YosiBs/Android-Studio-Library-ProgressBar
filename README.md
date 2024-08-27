@@ -266,6 +266,6 @@ my_animatedPB.setOnClickListener(new View.OnClickListener() {
     <li><a href="https://github.com/YosiBs">Yosi Ben Shushan</a></li>
 </ul>
 
-<p align="right"><a href="#readme-top"><img src="https://github.com/YosiBs/Gotcha-App/assets/105666011/9f5d6637-b1e1-4037-8f60-64388e5ab109" alt=pic5 width="40" height="40"></a></p>
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right"><a href="#readme-top"><img src="https://github.com/user-attachments/assets/5390781c-77bb-4f30-8403-1f46f14f9058" alt=pic5 width="40" height="40"></a></p>
+
