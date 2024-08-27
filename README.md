@@ -1,5 +1,17 @@
+<a id="readme-top"> </a>
+
 <h1>AnimatedPB [Android Studio Library]</h1>
 
+
+
+<p align="left">
+    <a href="https://github.com/yosibs/Android-Studio-Library-ProgressBar/graphs/contributors"><img alt="GitHub Contributors" src="https://img.shields.io/github/contributors/yosibs/Android-Studio-Library-ProgressBar" /></a>
+    <a href="https://github.com/yosibs/github-readme-stats/issues"><img alt="Issues" src="https://img.shields.io/github/issues/yosibs/Android-Studio-Library-ProgressBar?color=0088ff" /></a>
+    <a href="https://github.com/yosibs/github-readme-stats/pulls"><img alt="GitHub pull requests" src="https://img.shields.io/github/issues-pr/yosibs/Android-Studio-Library-ProgressBar?color=0088ff" /></a>
+    <br />
+    <br />
+  </p>
+    
   <h2>Description</h2>
   <p>
     AnimatedPB is an Android library for creating customizable and animated progress bars. It supports various shapes like polls and circles, allows for animation customization (linear, ease-in, ease-out, bounce), and offers extensive styling options for progress bars and containers. With easy-to-use attributes, you can set colors, labels, and more to create engaging UI elements.
@@ -69,9 +81,57 @@ my_animatedPB.setOnClickListener(new View.OnClickListener() {
         });
 ```
 
+<hr/>
+
+### Modify Attributes Dynamically at Runtime
+
+<p>The following attributes can be modified dynamically during runtime by calling the appropriate setter methods:</p>
+
+- **Bar Label**: Set or update the text displayed on the progress bar.
+```java
+  my_animatedPB.setBarLabel(String barLabel);
+```
+- **Label Color**: Change the color of the label text on the progress bar.
+```java
+  my_animatedPB.setLabelColor(int labelColor);
+```
+- **Label Text Size**: Modify the size of the label text on the progress bar.
+```java
+  my_animatedPB.setLabelTextSize(int labelTextSize);
+```
+- **Value Color**: Set the color for the value displayed inside the progress bar.
+```java
+  my_animatedPB.setValueColor(int valueColor);
+```
+- **Value to Display**: Choose whether to display a number, percentage, or none.
+```java
+  my_animatedPB.setValueToDisplay(int valueToDisplay); // Can be number, percentage, or none
+```
+- **Container Corner Radius**: Adjust the corner radius for the container of the progress bar.
+```java
+  my_animatedPB.setContainerCornerRadius(int containerCornerRadius);
+```
+- **Progress Corner Radius**: Adjust the corner radius for the progress bar itself.
+```java
+  my_animatedPB.setProgressCornerRadius(int progressCornerRadius);
+```
+- **Progress Color**: Change the color of the progress bar.
+```java
+  my_animatedPB.setProgressColor(int progressColor);
+```
+- **Container Color**: Modify the color of the background container for the progress bar.
+```java
+  my_animatedPB.setContainerColor(int containerColor);
+```
+- **Progress Margin**: Set margins around the progress bar (top, left, bottom, right).
+```java
+  my_animatedPB.setProgressMargin(int progressMarginTop, int progressMarginLeft, int progressMarginBottom, int progressMarginRight);
+```
 
   <h2><img src="https://github.com/user-attachments/assets/7908e7a2-ff92-4cb0-9101-96fc8a4efd30" alt=pic5 width="40" height="40"> Attributes</h2>
   <p>Here’s a table of all customizable attributes for AnimatedPB:</p>
+
+
 
 <table border="1" cellpadding="10" cellspacing="0">
   <thead>
@@ -86,8 +146,8 @@ my_animatedPB.setOnClickListener(new View.OnClickListener() {
     <tr>
       <td><code>progressColor</code></td>
       <td>Sets the color of the progress bar</td>
-      <td><code>#4CAF50</code></td>
-      <td><code>#005ECB</code></td>
+      <td><code>#4CAF50</code> </td>
+      <td><code>#005ECB</code> </td>
     </tr>
     <tr>
       <td><code>containerColor</code></td>
@@ -205,3 +265,7 @@ my_animatedPB.setOnClickListener(new View.OnClickListener() {
 <ul>
     <li><a href="https://github.com/YosiBs">Yosi Ben Shushan</a></li>
 </ul>
+
+<p align="right"><a href="#readme-top"><img src="https://github.com/YosiBs/Gotcha-App/assets/105666011/9f5d6637-b1e1-4037-8f60-64388e5ab109" alt=pic5 width="40" height="40"></a></p>
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
