@@ -5,9 +5,7 @@
     AnimatedPB is an Android library for creating customizable and animated progress bars. It supports various shapes like polls and circles, allows for animation customization (linear, ease-in, ease-out, bounce), and offers extensive styling options for progress bars and containers. With easy-to-use attributes, you can set colors, labels, and more to create engaging UI elements.
   </p>
 <h2>Demo</h2>
-
-![Librarygif-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/c96a645b-507b-449b-9546-9533edf01c67)
-
+<img src="https://github.com/user-attachments/assets/c96a645b-507b-449b-9546-9533edf01c67" width="260" height="430" alt="finalgif">
 
   <h2><img src="https://github.com/YosiBs/Pokemon-Escape-Mobile-Game/assets/105666011/008a508e-5484-46ba-be36-ac359d603f01" alt=pic5 width="40" height="40"> Features</h2>
   <ul>
