@@ -23,8 +23,8 @@
     <!-- Circular Progress -->
     <RelativeLayout
         android:id="@+id/PB_progress"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="1dp"
+        android:layout_height="1dp"
         android:layout_margin="10dp"
         app:layout_constraintStart_toStartOf="@+id/PB_shell"
         app:layout_constraintEnd_toEndOf="@+id/PB_shell"

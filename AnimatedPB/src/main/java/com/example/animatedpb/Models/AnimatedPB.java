@@ -192,6 +192,10 @@ public class AnimatedPB extends ConstraintLayout {
             params.width = newWidth;
             if(barShape == CIRCLE){
                 params.height = newWidth;
+                if(params.width == 0){
+                    params.width = 1;
+                    params.height = 1;
+                }
             }
             progressBar.setLayoutParams(params);
         });

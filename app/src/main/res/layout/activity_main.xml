@@ -10,7 +10,32 @@
     tools:context=".MainActivity"
     android:padding="5dp"
     >
+    <com.google.android.material.textview.MaterialTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="AnimatedPB Library"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:textColor="#314f79"/>
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="10dp"/>
+    
+    <com.google.android.material.textview.MaterialTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Poll Progress Bars:"
+        android:textStyle="bold"
+        android:layout_gravity="center_horizontal"
+        android:textSize="20sp"
+        android:textColor="#314f79"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="10dp"/>
+    <!--    POLL PROGRESS BARS    -->
     <com.example.animatedpb.Models.AnimatedPB
         android:id="@+id/animatedPB_2"
         android:layout_width="match_parent"
@@ -29,6 +54,9 @@
         app:labelColor="#212121"
         app:valueColor="#212121"
         />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="8dp"/>
     <com.example.animatedpb.Models.AnimatedPB
         android:id="@+id/animatedPB_4"
         android:layout_width="match_parent"
@@ -47,6 +75,9 @@
         app:labelColor="#212121"
         app:valueColor="#212121"
         />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="8dp"/>
     <com.example.animatedpb.Models.AnimatedPB
         android:id="@+id/animatedPB_3"
         android:layout_width="match_parent"
@@ -65,6 +96,9 @@
         app:labelColor="#FFFFFF"
         app:valueColor="#FFFFFF"
         />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="8dp"/>
     <com.example.animatedpb.Models.AnimatedPB
         android:id="@+id/animatedPB_1"
         android:layout_width="match_parent"
@@ -83,6 +117,22 @@
         app:labelColor="#212121"
         app:valueColor="#212121"
         />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="8dp"/>
+    <com.google.android.material.textview.MaterialTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Circle Progress Bars:"
+        android:textStyle="bold"
+        android:layout_gravity="center_horizontal"
+        android:textSize="20sp"
+        android:textColor="#314f79"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="10dp"/>
+<!--    CIRCLE PROGRESS BARS    -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="126dp"
@@ -90,8 +140,6 @@
         android:gravity="center_horizontal"
 
         >
-
-
         <com.example.animatedpb.Models.AnimatedPB
             android:id="@+id/animatedPB_5"
             android:layout_width="0dp"
@@ -109,7 +157,6 @@
             app:labelColor="#FFFFFF"
             app:valueColor="#FFFFFF"
             />
-
         <com.example.animatedpb.Models.AnimatedPB
             android:id="@+id/animatedPB_6"
             android:layout_width="0dp"
@@ -146,16 +193,19 @@
             app:valueColor="@color/black"
             />
     </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="20dp"/>
     <com.google.android.material.button.MaterialButton
         android:id="@+id/test_BTN"
-        android:layout_width="150dp"
-        android:layout_height="50dp"
-        android:text="Test" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Test"
+        android:textColor="#212121"
+        style="@style/Widget.Material3.Button.ElevatedButton"
+        />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/reset_BTN"
-        android:layout_width="150dp"
-        android:layout_height="50dp"
-        android:text="Reset" />
+
 
 </LinearLayout>
