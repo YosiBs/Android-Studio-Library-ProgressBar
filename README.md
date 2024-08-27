@@ -77,6 +77,9 @@
 
 <p> You can add an OnClick Listener to the ProgressBar and implement your own Functionality</p>
 
+<img src="https://github.com/user-attachments/assets/59d5b321-12a8-4b91-a011-6dd513fbd57c" width="260" alt="gif">
+
+
 ```java
 my_animatedPB.setOnClickListener(new View.OnClickListener() {
             @Override
