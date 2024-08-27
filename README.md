@@ -29,20 +29,25 @@
   </ul>
 
   <h2><img src="https://github.com/user-attachments/assets/4980fb42-e8b7-447c-86e9-007d8fb72644" alt=pic5 width="40" height="40"> Installation</h2>
-  <a href="https://jitpack.io/#YosiBs/SpannableTag-Android-Library"><img src="https://jitpack.io/v/YosiBs/SpannableTag-Android-Library.svg" alt=pic5 width="100"></a>
+  <a href="https://jitpack.io/#YosiBs/SpannableTag-Android-Library"><img src="https://jitpack.io/v/YosiBs/Android-Studio-Library-ProgressBar.svg" alt=pic5></a>
 
 <p>Add the following dependency to your <code>build.gradle</code> file:</p>
-  <pre>
+  
+```java
     <!-- In your project-level build.gradle -->
     repositories {
       mavenCentral()
     }
+```
 
+<p>Add the dependency:</p>
+
+```java
     <!-- In your app-level build.gradle -->
     dependencies {
       implementation 'com.example:animatedpb:1.0.0'
     }
-  </pre>
+```
 
   <h2><img src="https://github.com/YosiBs/Gotcha-App/assets/105666011/0c7e3507-e910-4ac4-b5e3-8c5d484fa682" alt=pic5 width="40" height="40"> Usage</h2>
   
